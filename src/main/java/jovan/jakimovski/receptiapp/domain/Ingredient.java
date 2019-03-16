@@ -13,11 +13,14 @@ public class Ingredient {
     private String description;
     private BigDecimal amount;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private UnitOfMeasure uom;
-
+    //ne stavame cascade posto ne sakam da izbrisam INGREDIENT -> da mi se izbrise Receptot
     @ManyToOne
     private Recipe recipe;
+
+    @OneToOne
+    private UnitOfMeasure unitOfMeasure;
+
+    //region GETTERS_AND_SETTERS
 
     public Long getId() {
         return id;
@@ -50,4 +53,6 @@ public class Ingredient {
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
     }
+
+    //endregion
 }

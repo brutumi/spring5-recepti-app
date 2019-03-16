@@ -10,6 +10,8 @@ public class UnitOfMeasure {
     private Long id;
     private String description;
 
+    //region GETTERS_AND_SETTERS
+
     public Long getId() {
         return id;
     }
@@ -25,4 +27,6 @@ public class UnitOfMeasure {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    //endregion
 }

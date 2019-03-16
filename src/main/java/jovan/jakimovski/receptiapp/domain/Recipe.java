@@ -34,6 +34,7 @@ public class Recipe {
     @ManyToMany
     private Set<Category> categories;
 
+    //region GETTERS_AND_SETTERS
 
     public Long getId() {
         return id;
@@ -138,4 +139,6 @@ public class Recipe {
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
+
+    //endregion
 }

@@ -14,6 +14,8 @@ public class Notes {
     @Lob                    //Large Object -> za da cuvame poveke od default 255
     private String recipeNotes;
 
+    //region GETTERS_AND_SETTERS
+
     public Long getId() {
         return id;
     }
@@ -37,4 +39,6 @@ public class Notes {
     public void setRecipeNotes(String recipeNotes) {
         this.recipeNotes = recipeNotes;
     }
+
+    //endregion
 }
