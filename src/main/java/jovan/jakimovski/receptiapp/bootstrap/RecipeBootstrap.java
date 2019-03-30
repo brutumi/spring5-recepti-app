@@ -29,6 +29,8 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         log.debug("Loading bootstrap data");
     }
 
+    //test
+
     public List<Recipe> getRecipes(){
 
         log.debug("Getting unit of measures");
