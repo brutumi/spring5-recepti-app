@@ -1,16 +1,12 @@
 package jovan.jakimovski.receptiapp.controllers;
 
-import jovan.jakimovski.receptiapp.domain.Category;
-import jovan.jakimovski.receptiapp.domain.UnitOfMeasure;
-import jovan.jakimovski.receptiapp.repositories.CategoryRepository;
-import jovan.jakimovski.receptiapp.repositories.UnitOfMeasureRepository;
 import jovan.jakimovski.receptiapp.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Optional;
-
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -22,6 +18,7 @@ public class IndexController {
 
     @RequestMapping({"","/index","/index/"})
     public String getIndexPage(Model model){
+        log.debug("Getting Index Page");
 
         model.addAttribute("recipes", recipeService.getRecipes());
 

@@ -4,16 +4,18 @@ import jovan.jakimovski.receptiapp.domain.*;
 import jovan.jakimovski.receptiapp.repositories.CategoryRepository;
 import jovan.jakimovski.receptiapp.repositories.RecipeRepository;
 import jovan.jakimovski.receptiapp.repositories.UnitOfMeasureRepository;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-
-import javax.naming.Context;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@AllArgsConstructor
+@Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -21,20 +23,15 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     private final RecipeRepository recipeRepository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
 
-    public RecipeBootstrap(CategoryRepository categoryRepository, RecipeRepository recipeRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
-        this.categoryRepository = categoryRepository;
-        this.recipeRepository = recipeRepository;
-        this.unitOfMeasureRepository = unitOfMeasureRepository;
-    }
-
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         recipeRepository.saveAll(getRecipes());
+        log.debug("Loading bootstrap data");
     }
 
     public List<Recipe> getRecipes(){
 
-        //region GET_UNIT_OF_MEASURES
+        log.debug("Getting unit of measures");
 
         Optional<UnitOfMeasure> unitOfMeasure1 = unitOfMeasureRepository.findByDescription("mLazica");
         Optional<UnitOfMeasure> unitOfMeasure2 = unitOfMeasureRepository.findByDescription("gLazica");
@@ -54,7 +51,6 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         UnitOfMeasure unitOfMeasure55 = unitOfMeasure5.get();
         UnitOfMeasure unitOfMeasure66 = unitOfMeasure6.get();
 
-        //endregion
 
         //region GET_CATEGORIES
 
