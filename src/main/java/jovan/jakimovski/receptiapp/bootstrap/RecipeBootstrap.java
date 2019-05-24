@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
-@Slf4j
+@Slf4j //logger
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -29,7 +29,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         log.debug("Loading bootstrap data");
     }
 
-    //test
+    //testfd
 
     public List<Recipe> getRecipes(){
 
